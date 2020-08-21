@@ -2,6 +2,7 @@ function export_struct = export_for_moviepy(U, cell_num)
 
 %% export structure whisker variables 
 export_struct.cell_number = cell_num;
+export_struct.spikes = U{cell_num}.R_ntk;
 touchOn = [find(U{cell_num}.S_ctk(9,:,:)==1)  ;find(U{cell_num}.S_ctk(12,:,:)==1)];
 touchOff = [find(U{cell_num}.S_ctk(10,:,:)==1)  ;find(U{cell_num}.S_ctk(13,:,:)==1)];
 export_struct.touch_matrix = nan(size(U{cell_num}.R_ntk));
@@ -27,7 +28,6 @@ ST_directory_backup =  'C:\Users\jacheung\Dropbox\HLabBackup\Jon\DATA\SpikesData
 T_name = ['trial_array_' U{cell_num}.meta.mouseName '_' U{cell_num}.meta.sessionName '_' U{cell_num}.meta.cellName '_' U{cell_num}.meta.cellCode];  
 sweep_name = ['sweepArray_' U{cell_num}.meta.mouseName '_' U{cell_num}.meta.sessionName '_' U{cell_num}.meta.cellName '_' U{cell_num}.meta.cellCode];
 spikes_trials = ['spikes_trials_' U{cell_num}.meta.mouseName '_' U{cell_num}.meta.sessionName '_' U{cell_num}.meta.cellName '_' U{cell_num}.meta.cellCode];
-[~,useTrials] = intersect(T.trialNums,T.whiskerTrialNums);
 
 try
     load([T_directory T_name '.mat'])
@@ -39,24 +39,47 @@ catch
     load([ST_directory_backup spikes_trials '_' cell_number{1}  '.mat'])
 end
 
-view_window = 20;
+view_window = 5;
 high_pass_trace = zeros(s.sweeps{1}.sweepLengthInSamples,length(s)); 
+downsampled_trace = zeros(U{cell_num}.t,length(s));
 for i = 1:length(s.sweeps)
     sts = spikes_trials.spikesTrials{i}.spikeTimes;
     raw_sts = s.sweeps{i}.spikeTimes;
     [~,st_idx] = intersect(raw_sts,sts);
-    clean_spike_windows = (s.sweeps{i}.spikeTimes(st_idx)) + [-view_window:view_window];
-    high_pass_trace(:,i) = s.sweeps{i}.highPassFilteredSignal;
-    zero_idx = setdiff(1:length(high_pass_trace(:,i)),clean_spike_windows(:));
-    high_pass_trace(zero_idx,i) = 0; 
+    clean_spike_windows = (s.sweeps{i}.spikeTimes(st_idx));
+    
+    max_response = s.sweeps{i}.highPassFilteredSignal(clean_spike_windows);
+    min_response = min(s.sweeps{i}.highPassFilteredSignal(clean_spike_windows+[0:5]),[],2);
+    
+    spike_times = round(T.trials{(i)}.spikesTrial.spikeTimes/10-T.whiskerTrialTimeOffset*1000);
+  
+    filtered_max = max_response(spike_times>0 & spike_times <=U{cell_num}.t);
+    filtered_min = min_response(spike_times>0 & spike_times <=U{cell_num}.t);
+    spike_times = spike_times(spike_times>0 & spike_times <=U{cell_num}.t); 
+    
+    downsampled_trace(spike_times,i) = filtered_max;
+    downsampled_trace(spike_times+1,i) = filtered_min'
+ 
+%     
+%     high_pass_trace(:,i) = s.sweeps{i}.highPassFilteredSignal;
+%     zero_idx = setdiff(1:length(high_pass_trace(:,i)),clean_spike_windows(:));
+%     high_pass_trace(zero_idx,i) = 0; 
+%     
+%     
+%     spike_times = round(T.trials{(i)}.spikesTrial.spikeTimes/10-T.whiskerTrialTimeOffset*1000);
+%     raw_spike_values = high_pass_trace(T.trials{(i)}.spikesTrial.spikeTimes);
+%     filtered_spike_values = raw_spike_values(spike_times>0 & spike_times <=U{cell_num}.t);
+%     spike_times = spike_times(spike_times>0 & spike_times <=U{cell_num}.t);    
+%     downsampled_trace(spike_times,i) = filtered_spike_values;
 end
 
-% plot_samples = randsample(numel(s.sweeps),5);
-% figure(380);clf
-% for k = 1:numel(plot_samples)
-%     figure(380);subplot(5,1,k)
-%     plot(high_pass_trace(:,plot_samples(k)));
-% end
-export_struct.spikes = high_pass_trace(:,useTrials);
+plot_samples = randsample(numel(s.sweeps),3);
+figure(380);clf
+for k = 1:numel(plot_samples)
+    figure(380);subplot(3,1,k)
+    plot(high_pass_trace(:,plot_samples(k)));
+end
+[~,useTrials] = intersect(T.trialNums,T.whiskerTrialNums);
+export_struct.spikes = high_pass_trace((T.whiskerTrialTimeOffset*100000)+1:end,useTrials);
 
 
