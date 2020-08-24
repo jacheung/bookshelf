@@ -68,6 +68,7 @@ end
 % end
 
 [~,useTrials] = intersect(T.trialNums,T.whiskerTrialNums);
+export_struct.video_file_names = cellfun(@(x) x.whiskerTrial.trackerFileName,T.trials(useTrials),'uniformoutput',0);
 export_struct.spikes_trace = downsampled_trace(:,useTrials);
 % export_struct.spikes = high_pass_trace((T.whiskerTrialTimeOffset*100000)+1:end,useTrials);
 
