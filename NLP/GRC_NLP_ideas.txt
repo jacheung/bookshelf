@@ -1,0 +1,13 @@
+NLP idea 1: 
+
+Within GRC testimonies, they seem to be packed full of information. 
+Reading through Bret Lane's testimony I find that there is an inherent structure already. 
+This structure can be denoted by roman numerals (I,II,III) and capitalized alphabets (A,B,C). 
+Within each segment and using some NLP software can we - 
+highlight the most important (top 2?) sentences within each segment while retaining the title heads?
+
+To do: 
+- highlight what you think are the best summary sentences for each section in the Bret Lane testimony 
+- Py2PDF or some PDF to text generator to place into python 
+- Chunk text based on Roman Numerals and Alphabets
+- TextRank within each paragraph. 
