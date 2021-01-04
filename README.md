@@ -1,4 +1,4 @@
-# still-learning
+# bookshelf
 #### “Learn as though you would never be able to master it; hold it as though you would be in fear of losing it.” – Confucius
 #### This here is a compilation of solving problems using various data science libraries. Exercises are personal projects or adapted from DataCamp. 
 
