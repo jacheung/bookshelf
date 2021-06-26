@@ -1,3 +1,10 @@
+cb_sdge_forecast_20210625_100914.dat
+cb_sdge_forecast_20210624_100908.dat
+cb_sdge_forecast_20210623_100844.dat
+cb_sdge_forecast_20210622_043514.dat
+cb_sdge_forecast_20210622_100850.dat
+cb_sdge_forecast_20210622_125957.dat
+cb_sdge_forecast_20210621_100543.dat
 cb_sdge_forecast_20210618_101102.dat
 cb_sdge_forecast_20210620_100619.dat
 cb_sdge_forecast_20210619_100437.dat
