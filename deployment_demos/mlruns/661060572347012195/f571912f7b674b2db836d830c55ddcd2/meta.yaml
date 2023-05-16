@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/jcheung/Documents/GitHub/bookshelf/deployment_demos/mlruns/661060572347012195/f571912f7b674b2db836d830c55ddcd2/artifacts
+deleted_time: 1684259709696
+end_time: 1684258835255
+entry_point_name: ''
+experiment_id: '661060572347012195'
+lifecycle_stage: deleted
+run_id: f571912f7b674b2db836d830c55ddcd2
+run_name: MNIST Xfer Learning
+run_uuid: f571912f7b674b2db836d830c55ddcd2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1684258835239
+status: 4
+tags: []
+user_id: jcheung

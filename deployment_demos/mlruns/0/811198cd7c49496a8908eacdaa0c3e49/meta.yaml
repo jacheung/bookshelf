@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/811198cd7c49496a8908eacdaa0c3e49/artifacts
+end_time: 1683311747539
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 811198cd7c49496a8908eacdaa0c3e49
+run_name: mnist-classification-vTEST
+run_uuid: 811198cd7c49496a8908eacdaa0c3e49
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683311038818
+status: 4
+tags: []
+user_id: jcheung

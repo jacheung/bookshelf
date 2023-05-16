@@ -1,0 +1,9 @@
+artifact_location: file:///Users/jcheung/Documents/GitHub/bookshelf/Untitled%20Folder/mlruns/262766957876672452
+creation_time: 1683321541003
+experiment_id: '262766957876672452'
+last_update_time: 1684258808057
+lifecycle_stage: deleted
+name: mnist-classification
+tags:
+  priority: P1
+  version: v0.1

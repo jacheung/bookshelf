@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/jcheung/Documents/GitHub/bookshelf/Untitled%20Folder/mlruns/262766957876672452/e76ea3fc4da3481ba9f86fb90fc581bc/artifacts
+deleted_time: 1683586087526
+end_time: 1683572534501
+entry_point_name: ''
+experiment_id: '262766957876672452'
+lifecycle_stage: deleted
+run_id: e76ea3fc4da3481ba9f86fb90fc581bc
+run_name: incongruous-ray-346
+run_uuid: e76ea3fc4da3481ba9f86fb90fc581bc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1683571229521
+status: 3
+tags: []
+user_id: jcheung

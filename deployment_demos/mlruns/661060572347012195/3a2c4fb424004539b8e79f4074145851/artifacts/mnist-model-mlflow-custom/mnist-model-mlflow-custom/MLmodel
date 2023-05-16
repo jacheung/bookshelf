@@ -1,0 +1,14 @@
+artifact_path: mnist-model-mlflow-custom
+flavors:
+  python_function:
+    cloudpickle_version: 2.2.1
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.9.6
+mlflow_version: 2.3.1
+model_uuid: a70c7419a3194c1eb47feefe3612e067
+run_id: 3a2c4fb424004539b8e79f4074145851
+utc_time_created: '2023-05-16 18:37:24.970594'

@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/jcheung/Documents/GitHub/bookshelf/Untitled%20Folder/mlruns/262766957876672452/a62a2407e7134342b4cb3d0778a100c9/artifacts
+deleted_time: 1684258808057
+end_time: 1684258718494
+entry_point_name: ''
+experiment_id: '262766957876672452'
+lifecycle_stage: deleted
+run_id: a62a2407e7134342b4cb3d0778a100c9
+run_name: MNIST Xfer Learning MLFlow PythonModel
+run_uuid: a62a2407e7134342b4cb3d0778a100c9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1684258718470
+status: 4
+tags: []
+user_id: jcheung

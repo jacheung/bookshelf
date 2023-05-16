@@ -1,0 +1,16 @@
+Model: "mnist-classification"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ mobilenet_embedding (KerasL  (None, 1280)             2257984   
+ ayer)                                                           
+                                                                 
+ dense_hidden (Dense)        (None, 16)                20496     
+                                                                 
+ mnist_prob (Dense)          (None, 10)                170       
+                                                                 
+=================================================================
+Total params: 2,278,650
+Trainable params: 20,666
+Non-trainable params: 2,257,984
+_________________________________________________________________
