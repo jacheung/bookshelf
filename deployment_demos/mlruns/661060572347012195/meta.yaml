@@ -1,6 +1,0 @@
-artifact_location: file:///Users/jcheung/Documents/GitHub/bookshelf/deployment_demos/mlruns/661060572347012195
-creation_time: 1684258817271
-experiment_id: '661060572347012195'
-last_update_time: 1684258817271
-lifecycle_stage: active
-name: mnist-classification
